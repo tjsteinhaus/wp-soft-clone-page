@@ -1,0 +1,26 @@
+{
+    "name": "tjsteinhaus/wp-clone-page",
+    "description": "You now have the ability to create a new page and link it to an existing page and use all the pages content and post meta.",
+    "config": {
+        "vendor-dir": "vendor",
+        "preferred-install": "source"
+    },
+    "authors": [
+        {
+            "name": "Tyler Steinhaus",
+            "email": "tjsteinhaus@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WPClonePage\\": "src/"
+        },
+        "files": [
+
+        ]
+    },
+    "minimum-stability": "stable"
+}
