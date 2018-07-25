@@ -1,9 +1,9 @@
 <?php
 /**
  * 
- * Plugin Name: WP Clone Page
- * Plugin URI: https://github.com/tjsteinhaus/wp-clone-page
- * Description: You now have the ability to create a new page and link it to an existing page and use all the pages content and post meta.
+ * Plugin Name: WP Soft Clone Page
+ * Plugin URI: https://github.com/tjsteinhaus/wp-soft-clone-page
+ * Description: Soft cloning gives you the ability to clone your pages title, content, page meta, and page template into a new page.
  * Author: Tyler Steinhaus
  * Version: 1.0
  * Author URI: https://tylersteinhaus.com
