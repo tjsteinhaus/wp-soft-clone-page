@@ -15,16 +15,6 @@ class CreateMetaBox {
     const PRIORITY = 'core';
 
     /**
-     * WP Nonce Action
-     */
-    const NONCE_ACTION = 'WP_Clone_Page_Save';
-
-    /**
-     * WP Nonce Name
-     */
-    const NONCE_NAME = 'WP_Clone_Page';
-
-    /**
      * Initialization of the meta box setup
      */
     public function init() {
@@ -57,7 +47,7 @@ class CreateMetaBox {
     public function createView( \WP_Post $post ) {
         // Which field is checked
         $cloneType = get_post_meta( $post->ID, 'wp_clone_page__clone', true );
-        
+
         require( WPClonePage_DIR . 'templates/admin/meta-box.php' );
     }
 }

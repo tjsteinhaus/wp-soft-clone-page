@@ -1,3 +1,3 @@
-# WP Clone Page
+# WP Soft Clone Page
 
-You now have the ability to create a new page and link it to an existing page and use all the pages content and post meta.
+Soft cloning your page gives you the ability to dynamically share your existing page to your new page. The benefit of this is that you don't need to create an exact replica with the same content.
