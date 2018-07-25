@@ -46,7 +46,7 @@ class CreateMetaBox {
      */
     public function createView( \WP_Post $post ) {
         // Which field is checked
-        $cloneType = get_post_meta( $post->ID, 'wp_clone_page__clone', true );
+        $cloneType = (array) get_post_meta( $post->ID, 'wp_clone_page__clone', true );
 
         require( WPClonePage_DIR . 'templates/admin/meta-box.php' );
     }
