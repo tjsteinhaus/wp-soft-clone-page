@@ -12,7 +12,7 @@ class CreateMetaBox {
     /**
      * What order should the box be displayed in
      */
-    const PRIORITY = 'core';
+    const PRIORITY = 'low';
 
     /**
      * Initialization of the meta box setup
