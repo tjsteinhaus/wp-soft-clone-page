@@ -7,7 +7,7 @@ class SoftClone {
     /**
      * Initialization of the public side of the website
      */
-    public function init() {
+    public static function init() {
         add_filter( 'the_content', array( __CLASS__, 'the_content' ), 1 );
         add_filter( 'the_title', array( __CLASS__, 'the_title' ), 1 );
         add_filter( 'document_title_parts', array( __CLASS__, 'wp_title' ), 1 );
@@ -23,7 +23,7 @@ class SoftClone {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function changePostIdInMeta( $metadata, $object_id, $meta_key, $single ) {
+    public static function changePostIdInMeta( $metadata, $object_id, $meta_key, $single ) {
         
         $exclude_meta_keys = array(
             '_wp_page_template',
@@ -37,6 +37,7 @@ class SoftClone {
             // }
             remove_filter( 'get_post_metadata', array( __CLASS__, 'changePostIdInMeta' ), 100 );
             $getSoftClone = self::checkSoftClone( $object_id );
+            $current_meta = null;
             if( self::whatShouldWeClone( 'meta' ) && $getSoftClone  ){
                 $current_meta = get_post_meta( $getSoftClone->ID, $meta_key, $single );
             }
@@ -54,7 +55,7 @@ class SoftClone {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function changePostTemplate( $query ) {
+    public static function changePostTemplate( $query ) {
         $getSoftClone = self::checkSoftClone();
 
         if( is_main_query() && $getSoftClone && self::whatShouldWeClone( 'template' ) ) {
@@ -72,7 +73,7 @@ class SoftClone {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function wp_title( $title ) {
+    public static function wp_title( $title ) {
         
         $getSoftClone = self::checkSoftClone();
 
@@ -89,7 +90,7 @@ class SoftClone {
      * @since 07/24/3018
      * @author Tyler Steinhaus
      */
-    public function addCanonical() {
+    public static function addCanonical() {
 
         $getSoftClone = self::checkSoftClone();
 
@@ -104,7 +105,7 @@ class SoftClone {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function the_title( $title ) {
+    public static function the_title( $title ) {
         global $wp_query; 
 
         $getSoftClone = self::checkSoftClone();
@@ -122,7 +123,7 @@ class SoftClone {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function the_content( $content ) {
+    public static function the_content( $content ) {
         $getSoftClone = self::checkSoftClone();
 
         if( $getSoftClone && self::whatShouldWeClone( 'content' ) ) {
@@ -138,7 +139,7 @@ class SoftClone {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function whatShouldWeClone( $clone ) {
+    public static function whatShouldWeClone( $clone ) {
         $getCloneItems = (array) get_post_meta( get_the_ID(), 'wp_clone_page__clone', true );
 
         if( in_array( $clone, $getCloneItems ) ) {
@@ -154,7 +155,7 @@ class SoftClone {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function checkSoftClone( int $post_id = null ) {
+    public static function checkSoftClone( int $post_id = null ) {
         if( is_null( $post_id ) ) {
             global $post;
 

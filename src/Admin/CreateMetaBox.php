@@ -17,7 +17,7 @@ class CreateMetaBox {
     /**
      * Initialization of the meta box setup
      */
-    public function init() {
+    public static function init() {
         add_action( 'add_meta_boxes', array( __CLASS__, 'createMetaBox' ) );
     }
 
@@ -27,7 +27,7 @@ class CreateMetaBox {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function createMetaBox() {
+    public static function createMetaBox() {
         add_meta_box( 
             \WPClonePage\Setup::PLUGIN_ID, // Metabox ID
             \WPClonePage\Setup::PLUGIN_NAME, // Metabox Name
@@ -44,7 +44,7 @@ class CreateMetaBox {
      * @since 07/24/2018
      * @author Tyler Steinhaus
      */
-    public function createView( \WP_Post $post ) {
+    public static function createView( \WP_Post $post ) {
         // Which field is checked
         $cloneType = (array) get_post_meta( $post->ID, 'wp_clone_page__clone', true );
 

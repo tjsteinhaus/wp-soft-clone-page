@@ -17,7 +17,7 @@ class SaveData {
     /**
      * Initialization to save the meta box data
      */
-    public function init() {
+    public static function init() {
         add_action( 'save_post', array( __CLASS__, 'saveData' ) );
     }
 
